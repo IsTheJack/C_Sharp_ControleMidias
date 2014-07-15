@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqControleMidia">
+  <DataContextMoniker Name="/LinqControleMidiaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="75be6505-4489-43a3-a074-cf5e4d47b573" absoluteBounds="0.75, 0.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/LinqControleMidiaDataContext/Amigo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd5d854f-c88e-4534-aea9-6857c66810ec" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8e729fe-f333-4f49-b054-f3f2e1da5cc9" absoluteBounds="4.5, 1.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LinqControleMidiaDataContext/Midia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b477e88f-86fb-41f4-9acd-ad41ff296289" absoluteBounds="4.5150000000000006, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.45274983723958); (4.5 : 2.45274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqControleMidiaDataContext/Amigo/Amigo_Midia" />
+      <nodes>
+        <classShapeMoniker Id="75be6505-4489-43a3-a074-cf5e4d47b573" />
+        <classShapeMoniker Id="a8e729fe-f333-4f49-b054-f3f2e1da5cc9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

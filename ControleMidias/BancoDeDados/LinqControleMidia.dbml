@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BancoControleMidia" Class="LinqControleMidiaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\BancoDeDados\BancoControleMidia.mdf;Integrated Security=True" SettingsObjectName="ControleMidias.Properties.Settings" SettingsPropertyName="BancoControleMidiaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Amigo" Member="Amigos">
+    <Type Name="Amigo">
+      <Column Name="IdAmigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apelido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Cidade" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Bairro" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroCasa" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NomePai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NomeMae" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Amigo_Midia" Member="Midias" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Midia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Midia" Member="Midias">
+    <Type Name="Midia">
+      <Column Name="IdMidia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdAmigo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataSaida" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataPrevistaEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataEfetivaEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Amigo_Midia" Member="Amigo" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Amigo" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
