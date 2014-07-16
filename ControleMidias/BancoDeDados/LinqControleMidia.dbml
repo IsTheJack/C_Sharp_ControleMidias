@@ -13,19 +13,27 @@
       <Column Name="NumeroCasa" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="NomePai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="NomeMae" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Amigo_Midia" Member="Midias" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Midia" />
+      <Association Name="Amigo_Emprestimo" Member="Emprestimos" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Emprestimo" />
     </Type>
   </Table>
   <Table Name="dbo.Midia" Member="Midias">
     <Type Name="Midia">
-      <Column Name="IdMidia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdMidia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IdAmigo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DataSaida" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DataPrevistaEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Midia_Emprestimo" Member="Emprestimos" ThisKey="IdMidia" OtherKey="IdMidia" Type="Emprestimo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Emprestimo" Member="Emprestimos">
+    <Type Name="Emprestimo">
+      <Column Name="IdEmprestimo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdAmigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdMidia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DataSaida" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DataPrevistaEntrega" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DataEfetivaEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Amigo_Midia" Member="Amigo" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Amigo" IsForeignKey="true" />
+      <Association Name="Amigo_Emprestimo" Member="Amigo" ThisKey="IdAmigo" OtherKey="IdAmigo" Type="Amigo" IsForeignKey="true" />
+      <Association Name="Midia_Emprestimo" Member="Midia" ThisKey="IdMidia" OtherKey="IdMidia" Type="Midia" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

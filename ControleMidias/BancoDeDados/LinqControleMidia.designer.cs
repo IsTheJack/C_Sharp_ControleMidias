@@ -36,6 +36,9 @@ namespace ControleMidias.BancoDeDados
     partial void InsertMidia(Midia instance);
     partial void UpdateMidia(Midia instance);
     partial void DeleteMidia(Midia instance);
+    partial void InsertEmprestimo(Emprestimo instance);
+    partial void UpdateEmprestimo(Emprestimo instance);
+    partial void DeleteEmprestimo(Emprestimo instance);
     #endregion
 		
 		public LinqControleMidiaDataContext() : 
@@ -83,6 +86,14 @@ namespace ControleMidias.BancoDeDados
 				return this.GetTable<Midia>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Emprestimo> Emprestimos
+		{
+			get
+			{
+				return this.GetTable<Emprestimo>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Amigo")]
@@ -113,7 +124,7 @@ namespace ControleMidias.BancoDeDados
 		
 		private string _NomeMae;
 		
-		private EntitySet<Midia> _Midias;
+		private EntitySet<Emprestimo> _Emprestimos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -145,7 +156,7 @@ namespace ControleMidias.BancoDeDados
 		
 		public Amigo()
 		{
-			this._Midias = new EntitySet<Midia>(new Action<Midia>(this.attach_Midias), new Action<Midia>(this.detach_Midias));
+			this._Emprestimos = new EntitySet<Emprestimo>(new Action<Emprestimo>(this.attach_Emprestimos), new Action<Emprestimo>(this.detach_Emprestimos));
 			OnCreated();
 		}
 		
@@ -369,16 +380,16 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Amigo_Midia", Storage="_Midias", ThisKey="IdAmigo", OtherKey="IdAmigo")]
-		public EntitySet<Midia> Midias
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Amigo_Emprestimo", Storage="_Emprestimos", ThisKey="IdAmigo", OtherKey="IdAmigo")]
+		public EntitySet<Emprestimo> Emprestimos
 		{
 			get
 			{
-				return this._Midias;
+				return this._Emprestimos;
 			}
 			set
 			{
-				this._Midias.Assign(value);
+				this._Emprestimos.Assign(value);
 			}
 		}
 		
@@ -402,13 +413,13 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		private void attach_Midias(Midia entity)
+		private void attach_Emprestimos(Emprestimo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Amigo = this;
 		}
 		
-		private void detach_Midias(Midia entity)
+		private void detach_Emprestimos(Emprestimo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Amigo = null;
@@ -427,15 +438,7 @@ namespace ControleMidias.BancoDeDados
 		
 		private string _Tipo;
 		
-		private System.Nullable<int> _IdAmigo;
-		
-		private System.Nullable<System.DateTime> _DataSaida;
-		
-		private System.Nullable<System.DateTime> _DataPrevistaEntrega;
-		
-		private System.Nullable<System.DateTime> _DataEfetivaEntrega;
-		
-		private EntityRef<Amigo> _Amigo;
+		private EntitySet<Emprestimo> _Emprestimos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -447,23 +450,15 @@ namespace ControleMidias.BancoDeDados
     partial void OnNomeChanged();
     partial void OnTipoChanging(string value);
     partial void OnTipoChanged();
-    partial void OnIdAmigoChanging(System.Nullable<int> value);
-    partial void OnIdAmigoChanged();
-    partial void OnDataSaidaChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataSaidaChanged();
-    partial void OnDataPrevistaEntregaChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataPrevistaEntregaChanged();
-    partial void OnDataEfetivaEntregaChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataEfetivaEntregaChanged();
     #endregion
 		
 		public Midia()
 		{
-			this._Amigo = default(EntityRef<Amigo>);
+			this._Emprestimos = new EntitySet<Emprestimo>(new Action<Emprestimo>(this.attach_Emprestimos), new Action<Emprestimo>(this.detach_Emprestimos));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMidia", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMidia", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int IdMidia
 		{
 			get
@@ -523,8 +518,121 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAmigo", DbType="Int")]
-		public System.Nullable<int> IdAmigo
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Midia_Emprestimo", Storage="_Emprestimos", ThisKey="IdMidia", OtherKey="IdMidia")]
+		public EntitySet<Emprestimo> Emprestimos
+		{
+			get
+			{
+				return this._Emprestimos;
+			}
+			set
+			{
+				this._Emprestimos.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Emprestimos(Emprestimo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Midia = this;
+		}
+		
+		private void detach_Emprestimos(Emprestimo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Midia = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Emprestimo")]
+	public partial class Emprestimo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdEmprestimo;
+		
+		private int _IdAmigo;
+		
+		private int _IdMidia;
+		
+		private System.DateTime _DataSaida;
+		
+		private System.DateTime _DataPrevistaEntrega;
+		
+		private System.Nullable<System.DateTime> _DataEfetivaEntrega;
+		
+		private EntityRef<Amigo> _Amigo;
+		
+		private EntityRef<Midia> _Midia;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdEmprestimoChanging(int value);
+    partial void OnIdEmprestimoChanged();
+    partial void OnIdAmigoChanging(int value);
+    partial void OnIdAmigoChanged();
+    partial void OnIdMidiaChanging(int value);
+    partial void OnIdMidiaChanged();
+    partial void OnDataSaidaChanging(System.DateTime value);
+    partial void OnDataSaidaChanged();
+    partial void OnDataPrevistaEntregaChanging(System.DateTime value);
+    partial void OnDataPrevistaEntregaChanged();
+    partial void OnDataEfetivaEntregaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataEfetivaEntregaChanged();
+    #endregion
+		
+		public Emprestimo()
+		{
+			this._Amigo = default(EntityRef<Amigo>);
+			this._Midia = default(EntityRef<Midia>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEmprestimo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdEmprestimo
+		{
+			get
+			{
+				return this._IdEmprestimo;
+			}
+			set
+			{
+				if ((this._IdEmprestimo != value))
+				{
+					this.OnIdEmprestimoChanging(value);
+					this.SendPropertyChanging();
+					this._IdEmprestimo = value;
+					this.SendPropertyChanged("IdEmprestimo");
+					this.OnIdEmprestimoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAmigo", DbType="Int NOT NULL")]
+		public int IdAmigo
 		{
 			get
 			{
@@ -547,8 +655,32 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataSaida", DbType="Date")]
-		public System.Nullable<System.DateTime> DataSaida
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMidia", DbType="Int NOT NULL")]
+		public int IdMidia
+		{
+			get
+			{
+				return this._IdMidia;
+			}
+			set
+			{
+				if ((this._IdMidia != value))
+				{
+					if (this._Midia.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdMidiaChanging(value);
+					this.SendPropertyChanging();
+					this._IdMidia = value;
+					this.SendPropertyChanged("IdMidia");
+					this.OnIdMidiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataSaida", DbType="Date NOT NULL")]
+		public System.DateTime DataSaida
 		{
 			get
 			{
@@ -567,8 +699,8 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPrevistaEntrega", DbType="Date")]
-		public System.Nullable<System.DateTime> DataPrevistaEntrega
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPrevistaEntrega", DbType="Date NOT NULL")]
+		public System.DateTime DataPrevistaEntrega
 		{
 			get
 			{
@@ -607,7 +739,7 @@ namespace ControleMidias.BancoDeDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Amigo_Midia", Storage="_Amigo", ThisKey="IdAmigo", OtherKey="IdAmigo", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Amigo_Emprestimo", Storage="_Amigo", ThisKey="IdAmigo", OtherKey="IdAmigo", IsForeignKey=true)]
 		public Amigo Amigo
 		{
 			get
@@ -624,19 +756,53 @@ namespace ControleMidias.BancoDeDados
 					if ((previousValue != null))
 					{
 						this._Amigo.Entity = null;
-						previousValue.Midias.Remove(this);
+						previousValue.Emprestimos.Remove(this);
 					}
 					this._Amigo.Entity = value;
 					if ((value != null))
 					{
-						value.Midias.Add(this);
+						value.Emprestimos.Add(this);
 						this._IdAmigo = value.IdAmigo;
 					}
 					else
 					{
-						this._IdAmigo = default(Nullable<int>);
+						this._IdAmigo = default(int);
 					}
 					this.SendPropertyChanged("Amigo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Midia_Emprestimo", Storage="_Midia", ThisKey="IdMidia", OtherKey="IdMidia", IsForeignKey=true)]
+		public Midia Midia
+		{
+			get
+			{
+				return this._Midia.Entity;
+			}
+			set
+			{
+				Midia previousValue = this._Midia.Entity;
+				if (((previousValue != value) 
+							|| (this._Midia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Midia.Entity = null;
+						previousValue.Emprestimos.Remove(this);
+					}
+					this._Midia.Entity = value;
+					if ((value != null))
+					{
+						value.Emprestimos.Add(this);
+						this._IdMidia = value.IdMidia;
+					}
+					else
+					{
+						this._IdMidia = default(int);
+					}
+					this.SendPropertyChanged("Midia");
 				}
 			}
 		}

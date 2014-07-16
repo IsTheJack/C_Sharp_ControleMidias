@@ -2,23 +2,36 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqControleMidia">
   <DataContextMoniker Name="/LinqControleMidiaDataContext" />
   <nestedChildShapes>
-    <classShape Id="75be6505-4489-43a3-a074-cf5e4d47b573" absoluteBounds="0.75, 0.75, 2, 2.9247054036458326">
+    <classShape Id="a22bc058-bfc5-43df-9ac3-2ecb369d5e5a" absoluteBounds="6.75, 0.5, 2, 2.9247054036458318">
       <DataClassMoniker Name="/LinqControleMidiaDataContext/Amigo" />
       <nestedChildShapes>
-        <elementListCompartment Id="bd5d854f-c88e-4534-aea9-6857c66810ec" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="55ac1f9b-b209-406a-b799-833f0285983b" absoluteBounds="6.7650000000000006, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a8e729fe-f333-4f49-b054-f3f2e1da5cc9" absoluteBounds="4.5, 1.375, 2, 2.1554996744791666">
+    <classShape Id="b0f418b6-1dde-4103-972e-c75139c68195" absoluteBounds="1.25, 0.625, 2, 1.3862939453125">
       <DataClassMoniker Name="/LinqControleMidiaDataContext/Midia" />
       <nestedChildShapes>
-        <elementListCompartment Id="b477e88f-86fb-41f4-9acd-ad41ff296289" absoluteBounds="4.5150000000000006, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c18980ad-5354-4de8-a135-8b55c1d702ad" absoluteBounds="1.2650000000000001, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.45274983723958); (4.5 : 2.45274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqControleMidiaDataContext/Amigo/Amigo_Midia" />
+    <classShape Id="e0b55a81-f9af-4d10-8bf0-2360ccbbd4e4" absoluteBounds="4, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LinqControleMidiaDataContext/Emprestimo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bac415fd-7230-44da-9c50-b53a98840ec3" absoluteBounds="4.0150000000000006, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.75 : 1.73159912109375); (6 : 1.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqControleMidiaDataContext/Amigo/Amigo_Emprestimo" />
       <nodes>
-        <classShapeMoniker Id="75be6505-4489-43a3-a074-cf5e4d47b573" />
-        <classShapeMoniker Id="a8e729fe-f333-4f49-b054-f3f2e1da5cc9" />
+        <classShapeMoniker Id="a22bc058-bfc5-43df-9ac3-2ecb369d5e5a" />
+        <classShapeMoniker Id="e0b55a81-f9af-4d10-8bf0-2360ccbbd4e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 1.38064697265625); (4 : 1.38064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqControleMidiaDataContext/Midia/Midia_Emprestimo" />
+      <nodes>
+        <classShapeMoniker Id="b0f418b6-1dde-4103-972e-c75139c68195" />
+        <classShapeMoniker Id="e0b55a81-f9af-4d10-8bf0-2360ccbbd4e4" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

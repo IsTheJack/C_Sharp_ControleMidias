@@ -1,1 +1,2 @@
 C:\Users\Roberto\Documents\Visual Studio 2013\Projects\ControleMidias\ControleMidias\bin\Debug\ControleMidias.exe.config
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\ControleMidias.exe.config
