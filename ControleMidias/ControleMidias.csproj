@@ -66,6 +66,7 @@
       <DependentUpon>LinqControleMidia.dbml</DependentUpon>
     </Compile>
     <Compile Include="Classes\_Amigo.cs" />
+    <Compile Include="Classes\_Emprestimo.cs" />
     <Compile Include="Classes\_Midia.cs" />
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
