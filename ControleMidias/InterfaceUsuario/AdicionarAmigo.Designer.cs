@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtApelido = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -61,6 +61,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblDica = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.dgvAmigos = new System.Windows.Forms.DataGridView();
             this.idAmigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@
             this.amigoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bancoControleMidiaAmigoDataSet = new ControleMidias.BancoControleMidiaAmigoDataSet();
             this.amigoTableAdapter = new ControleMidias.BancoControleMidiaAmigoDataSetTableAdapters.AmigoTableAdapter();
-            this.lblDica = new System.Windows.Forms.Label();
             this.gpbInformacao.SuspendLayout();
             this.gpbPesquisa.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -268,6 +268,7 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(95, 20);
             this.txtTelefone.TabIndex = 3;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtCelular
             // 
@@ -276,6 +277,7 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(95, 20);
             this.txtCelular.TabIndex = 2;
+            this.txtCelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // gpbPesquisa
             // 
@@ -330,6 +332,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 75);
             this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabStop = false;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             this.btnAdd.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
@@ -343,7 +346,9 @@
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 75);
             this.btnAlterar.TabIndex = 13;
+            this.btnAlterar.TabStop = false;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             this.btnAlterar.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
             this.btnAlterar.MouseHover += new System.EventHandler(this.btnAlterar_MouseHover);
             // 
@@ -355,7 +360,9 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 75);
             this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.TabStop = false;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             this.btnExcluir.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
             this.btnExcluir.MouseHover += new System.EventHandler(this.btnExcluir_MouseHover);
             // 
@@ -367,6 +374,7 @@
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 75);
             this.btnVoltar.TabIndex = 15;
+            this.btnVoltar.TabStop = false;
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             this.btnVoltar.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
@@ -383,6 +391,16 @@
             this.panelHeader.Size = new System.Drawing.Size(908, 92);
             this.panelHeader.TabIndex = 26;
             // 
+            // lblDica
+            // 
+            this.lblDica.AutoSize = true;
+            this.lblDica.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDica.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDica.Location = new System.Drawing.Point(650, 9);
+            this.lblDica.Name = "lblDica";
+            this.lblDica.Size = new System.Drawing.Size(0, 20);
+            this.lblDica.TabIndex = 2;
+            // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
@@ -396,8 +414,9 @@
             // 
             // dgvAmigos
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvAmigos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAmigos.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvAmigos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAmigos.AutoGenerateColumns = false;
             this.dgvAmigos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAmigos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -521,16 +540,6 @@
             // amigoTableAdapter
             // 
             this.amigoTableAdapter.ClearBeforeFill = true;
-            // 
-            // lblDica
-            // 
-            this.lblDica.AutoSize = true;
-            this.lblDica.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDica.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDica.Location = new System.Drawing.Point(650, 9);
-            this.lblDica.Name = "lblDica";
-            this.lblDica.Size = new System.Drawing.Size(0, 20);
-            this.lblDica.TabIndex = 2;
             // 
             // frmAddAmigo
             // 

@@ -13,7 +13,8 @@ namespace ControleMidias.Classes
         /// Esta classe representa a entidade amigo, fornecendo todas as operações necessárias
         /// para a manutenção dos dados da tabela 'Amigo' no banco de dados 'BancoControleMidia'. 
         /// </summary>
-        
+
+        #region Propriedades e Atributos
         // Atributos globais encapsulados
         private uint idAmigo;
         private string nome;
@@ -93,7 +94,9 @@ namespace ControleMidias.Classes
             get { return nomeMae; }
             set { nomeMae = value; }
         }
+        #endregion
 
+        #region CRUD completo das informações dos amigos
         // Método para salvar os dados
         public bool SalvarDados()
         {
@@ -184,5 +187,6 @@ namespace ControleMidias.Classes
                 throw;
             }
         }
+        #endregion 
     }
 }
