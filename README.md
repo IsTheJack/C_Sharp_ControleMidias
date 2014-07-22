@@ -10,4 +10,4 @@ Programa do exercício da matéria de Engenharia de Software da faculdade.
 O projeto encontra-se em andamento..
 
 
-##[///-------] --> 30%
+##[//////--------------] --> 30%
