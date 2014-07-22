@@ -28,7 +28,7 @@ namespace ControleMidias.Classes
         // Propriedades
         
         // Método para salvar os dados
-        public bool AlterarDados()
+        public bool SalvarDados()
         {
             try
             {
@@ -60,7 +60,7 @@ namespace ControleMidias.Classes
         }
 
         // Método para excluir os dados
-        public bool AlterarDados(uint id)
+        public bool EcluirDados(uint id)
         {
             try
             {

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ControleMidias
+namespace ControleMidias.InterfaceUsuario
 {
-    public partial class frmMenuPrincipal : Form
+    public partial class frmAddAmigo : Form
     {
-        public frmMenuPrincipal()
+        public frmAddAmigo()
         {
             InitializeComponent();
         }

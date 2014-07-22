@@ -1,2 +1,13 @@
 C:\Users\Roberto\Documents\Visual Studio 2013\Projects\ControleMidias\ControleMidias\bin\Debug\ControleMidias.exe.config
 C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\ControleMidias.exe.config
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.csprojResolveAssemblyReference.cache
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.frmMenuPrincipal.resources
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.Properties.Resources.resources
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.csproj.GenerateResource.Cache
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\BancoDeDados\BancoControleMidia.mdf
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\BancoDeDados\BancoControleMidia_log.ldf
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\ControleMidias.exe
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debug\ControleMidias.pdb
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.exe
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.pdb
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.InterfaceUsuario.frmAddAmigo.resources
