@@ -60,6 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BancoControleMidiaAmigoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoControleMidiaAmigoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BancoDeDados\LinqControleMidia.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +103,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="BancoControleMidiaAmigoDataSet.xsc">
+      <DependentUpon>BancoControleMidiaAmigoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BancoControleMidiaAmigoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BancoControleMidiaAmigoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BancoControleMidiaAmigoDataSet.xss">
+      <DependentUpon>BancoControleMidiaAmigoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="BancoDeDados\LinqControleMidia.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LinqControleMidia.designer.cs</LastGenOutput>
@@ -127,6 +143,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BancoControleMidia.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\CM_Voltar.png" />
+    <None Include="Resources\CM_ExcluirAmigo.png" />
+    <None Include="Resources\CM_AlterarAmigo.png" />
+    <None Include="Resources\CM_AddAmigo.png" />
     <None Include="Resources\CM_Midia.png" />
     <None Include="Resources\CM_Emprestimo.png" />
     <None Include="Resources\CM_Amigo.png" />

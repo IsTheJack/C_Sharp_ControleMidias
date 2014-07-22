@@ -22,7 +22,9 @@ namespace ControleMidias
         private void btnAddAmigo_Click(object sender, EventArgs e)
         {
             frmAddAmigo formAmigo = new frmAddAmigo();
+            this.Visible = false;
             formAmigo.ShowDialog();
+            this.Visible = true;
             CarregarStatusStrip();
         }
 
@@ -31,16 +33,10 @@ namespace ControleMidias
             lblHeader.Text = "Adicionar Amigo";
         }
 
-        private void botoesDoMenu_MouseLeave(object sender, EventArgs e)
-        {
-            lblHeader.Text = "Controle de Mídias";
-        }
-
         private void btnAddMidia_Click(object sender, EventArgs e)
         {
-            statusStrip1.Focus();
+            
         }
-
 
         private void btnAddMidia_MouseHover(object sender, EventArgs e)
         {
@@ -49,12 +45,17 @@ namespace ControleMidias
 
         private void btnEmprestimos_Click(object sender, EventArgs e)
         {
-            statusStrip1.Focus();
+
         }
 
         private void btnEmprestimos_MouseHover(object sender, EventArgs e)
         {
             lblHeader.Text = "Administrar Empréstimo";
+        }
+
+        private void botoesDoMenu_MouseLeave(object sender, EventArgs e)
+        {
+            lblHeader.Text = "Controle de Mídias";
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
@@ -64,18 +65,19 @@ namespace ControleMidias
 
         private void CarregarStatusStrip()
         {
+            statusStrip1.Focus();
             using (LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext())
             {
                 var lista = from Amigo in dc.Amigos select Amigo;
-                lblQntAmigos.Text = String.Format("{0} Amigo(s) Cadastrados  |", lista.Count());
+                lblQntAmigos.Text = String.Format("{0} Amigo(s) Cadastrado(s)  |", lista.Count());
 
                 var lista1 = from Midia in dc.Midias select Midia;
-                lblQndMidias.Text = String.Format("{0} Mídias Cadastradas  |", lista1.Count());
+                lblQndMidias.Text = String.Format("{0} Mídia(s) Cadastrada(s)  |", lista1.Count());
 
                 var lista2 = from Emprestimo in dc.Emprestimos
                              where Emprestimo.DataPrevistaEntrega < DateTime.Now
                              select Emprestimo;
-                lblQntEmprestimosAtrasados.Text = String.Format("{0} Empréstimos atrasados", lista2.Count());
+                lblQntEmprestimosAtrasados.Text = String.Format("{0} Empréstimo(s) atrasado(s)", lista2.Count());
             }
         }
     }

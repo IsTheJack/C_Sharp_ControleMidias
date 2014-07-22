@@ -63,6 +63,26 @@ namespace ControleMidias.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CM_AddAmigo {
+            get {
+                object obj = ResourceManager.GetObject("CM_AddAmigo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CM_AlterarAmigo {
+            get {
+                object obj = ResourceManager.GetObject("CM_AlterarAmigo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CM_Amigo {
             get {
                 object obj = ResourceManager.GetObject("CM_Amigo", resourceCulture);
@@ -83,9 +103,29 @@ namespace ControleMidias.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CM_ExcluirAmigo {
+            get {
+                object obj = ResourceManager.GetObject("CM_ExcluirAmigo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CM_Midia {
             get {
                 object obj = ResourceManager.GetObject("CM_Midia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CM_Voltar {
+            get {
+                object obj = ResourceManager.GetObject("CM_Voltar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
