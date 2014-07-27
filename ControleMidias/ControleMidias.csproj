@@ -79,6 +79,18 @@
     <Compile Include="InterfaceUsuario\AdicionarAmigo.Designer.cs">
       <DependentUpon>AdicionarAmigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfaceUsuario\AdicionarMidia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceUsuario\AdicionarMidia.Designer.cs">
+      <DependentUpon>AdicionarMidia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceUsuario\Emprestimos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceUsuario\Emprestimos.Designer.cs">
+      <DependentUpon>Emprestimos.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceUsuario\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="InterfaceUsuario\AdicionarAmigo.resx">
       <DependentUpon>AdicionarAmigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceUsuario\AdicionarMidia.resx">
+      <DependentUpon>AdicionarMidia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceUsuario\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
@@ -143,6 +158,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BancoControleMidia.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\CM_Pesquisar.png" />
+    <None Include="Resources\Search-icon.png" />
     <None Include="Resources\CM_Voltar.png" />
     <None Include="Resources\CM_ExcluirAmigo.png" />
     <None Include="Resources\CM_AlterarAmigo.png" />

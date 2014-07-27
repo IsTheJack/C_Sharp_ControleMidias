@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtApelido = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -52,10 +52,8 @@
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
             this.gpbPesquisa = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.pxbPesquisar = new System.Windows.Forms.PictureBox();
+            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -80,6 +78,7 @@
             this.amigoTableAdapter = new ControleMidias.BancoControleMidiaAmigoDataSetTableAdapters.AmigoTableAdapter();
             this.gpbInformacao.SuspendLayout();
             this.gpbPesquisa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbPesquisar)).BeginInit();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAmigos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amigoBindingSource)).BeginInit();
@@ -281,10 +280,8 @@
             // 
             // gpbPesquisa
             // 
-            this.gpbPesquisa.Controls.Add(this.label12);
-            this.gpbPesquisa.Controls.Add(this.textBox2);
-            this.gpbPesquisa.Controls.Add(this.textBox1);
-            this.gpbPesquisa.Controls.Add(this.label11);
+            this.gpbPesquisa.Controls.Add(this.pxbPesquisar);
+            this.gpbPesquisa.Controls.Add(this.txtNomePesquisa);
             this.gpbPesquisa.Location = new System.Drawing.Point(697, 98);
             this.gpbPesquisa.Name = "gpbPesquisa";
             this.gpbPesquisa.Size = new System.Drawing.Size(200, 100);
@@ -292,37 +289,23 @@
             this.gpbPesquisa.TabStop = false;
             this.gpbPesquisa.Text = "Pesquisa:";
             // 
-            // label12
+            // pxbPesquisar
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 47);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 13);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "Apelido:";
+            this.pxbPesquisar.BackgroundImage = global::ControleMidias.Properties.Resources.CM_Pesquisar;
+            this.pxbPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pxbPesquisar.Location = new System.Drawing.Point(64, 41);
+            this.pxbPesquisar.Name = "pxbPesquisar";
+            this.pxbPesquisar.Size = new System.Drawing.Size(75, 50);
+            this.pxbPesquisar.TabIndex = 11;
+            this.pxbPesquisar.TabStop = false;
             // 
-            // textBox2
+            // txtNomePesquisa
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 11;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(64, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 21);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Nome:";
+            this.txtNomePesquisa.Location = new System.Drawing.Point(9, 18);
+            this.txtNomePesquisa.Name = "txtNomePesquisa";
+            this.txtNomePesquisa.Size = new System.Drawing.Size(185, 20);
+            this.txtNomePesquisa.TabIndex = 10;
+            this.txtNomePesquisa.TextChanged += new System.EventHandler(this.pesquisa_TextChanged);
             // 
             // btnAdd
             // 
@@ -415,8 +398,8 @@
             // dgvAmigos
             // 
             this.dgvAmigos.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvAmigos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvAmigos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAmigos.AutoGenerateColumns = false;
             this.dgvAmigos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAmigos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -563,6 +546,7 @@
             this.gpbInformacao.PerformLayout();
             this.gpbPesquisa.ResumeLayout(false);
             this.gpbPesquisa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbPesquisar)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAmigos)).EndInit();
@@ -596,10 +580,7 @@
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCelular;
         private System.Windows.Forms.GroupBox gpbPesquisa;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtNomePesquisa;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
@@ -622,5 +603,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomePaiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeMaeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblDica;
+        private System.Windows.Forms.PictureBox pxbPesquisar;
     }
 }

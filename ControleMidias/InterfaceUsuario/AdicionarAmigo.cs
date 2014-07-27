@@ -230,5 +230,24 @@ namespace ControleMidias.InterfaceUsuario
             }
         }
         #endregion
+
+        private void pesquisa_TextChanged(object sender, EventArgs e)
+        {
+            PesquisaAmigos();
+        }
+
+        private void PesquisaAmigos()
+        {
+            amigoBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text + "%' OR " +
+                "Apelido like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "Celular like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "Telefone like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "Email like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "Cidade like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "Bairro like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "NumeroCasa like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "NomePai like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                "NomeMae like '%" + txtNomePesquisa.Text.Trim() + "%'";
+        }
     }
 }

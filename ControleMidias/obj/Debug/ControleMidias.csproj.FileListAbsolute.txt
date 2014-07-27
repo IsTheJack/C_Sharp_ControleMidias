@@ -11,3 +11,4 @@ C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\bin\Debu
 C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.exe
 C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.pdb
 C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.InterfaceUsuario.frmAddAmigo.resources
+C:\Users\Roberto\Documents\GitHub\C_Sharp_ControleMidias\ControleMidias\obj\Debug\ControleMidias.InterfaceUsuario.frmAddMidia.resources

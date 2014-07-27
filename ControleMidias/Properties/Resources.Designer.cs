@@ -123,6 +123,16 @@ namespace ControleMidias.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CM_Pesquisar {
+            get {
+                object obj = ResourceManager.GetObject("CM_Pesquisar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CM_Voltar {
             get {
                 object obj = ResourceManager.GetObject("CM_Voltar", resourceCulture);

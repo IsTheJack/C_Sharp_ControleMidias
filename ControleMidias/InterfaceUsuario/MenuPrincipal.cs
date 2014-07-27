@@ -35,7 +35,11 @@ namespace ControleMidias
 
         private void btnAddMidia_Click(object sender, EventArgs e)
         {
-            
+            frmAddMidia formMidia = new frmAddMidia();
+            this.Visible = false;
+            formMidia.ShowDialog();
+            this.Visible = true;
+            CarregarStatusStrip();
         }
 
         private void btnAddMidia_MouseHover(object sender, EventArgs e)
@@ -45,7 +49,11 @@ namespace ControleMidias
 
         private void btnEmprestimos_Click(object sender, EventArgs e)
         {
-
+            frmEmprestimos formEmprestimos = new frmEmprestimos();
+            this.Visible = false;
+            formEmprestimos.ShowDialog();
+            this.Visible = true;
+            CarregarStatusStrip();
         }
 
         private void btnEmprestimos_MouseHover(object sender, EventArgs e)
