@@ -73,19 +73,37 @@ namespace ControleMidias
 
         private void CarregarStatusStrip()
         {
-            statusStrip1.Focus();
-            using (LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext())
+            try
             {
-                var lista = from Amigo in dc.Amigos select Amigo;
-                lblQntAmigos.Text = String.Format("{0} Amigo(s) Cadastrado(s)  |", lista.Count());
+                //AQUI VC COLOCA SEUS CODIGOS
+                statusStrip1.Focus();
+                using (LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext())
+                {
+                    var lista = from Amigo in dc.Amigos select Amigo;
+                    lblQntAmigos.Text = String.Format("{0} Amigo(s) Cadastrado(s)  |", lista.Count());
 
-                var lista1 = from Midia in dc.Midias select Midia;
-                lblQndMidias.Text = String.Format("{0} Mídia(s) Cadastrada(s)  |", lista1.Count());
+                    var lista1 = from Midia in dc.Midias select Midia;
+                    lblQndMidias.Text = String.Format("{0} Mídia(s) Cadastrada(s)  |", lista1.Count());
 
-                var lista2 = from Emprestimo in dc.Emprestimos
-                             where Emprestimo.DataPrevistaEntrega < DateTime.Now
-                             select Emprestimo;
-                lblQntEmprestimosAtrasados.Text = String.Format("{0} Empréstimo(s) atrasado(s)", lista2.Count());
+                    var lista2 = from Emprestimo in dc.Emprestimos
+                                 where Emprestimo.DataPrevistaEntrega < DateTime.Now
+                                 select Emprestimo;
+                    lblQntEmprestimosAtrasados.Text = String.Format("{0} Empréstimo(s) atrasado(s)", lista2.Count());
+                }
+            }
+            catch (System.Data.SqlClient.SqlException erro)
+            {
+                MessageBox.Show("Não foi possível executar essa rotina. Entre em contato com a Informática. Informando o seguinte erro: " + erro.Message.ToString(), "Controle de Estoque - BASE DE DADOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possível executar essa rotina. Entre em contato com a Informatica. Informando o seguinte erro: " + erro.Message.ToString(), "Controle de Estoque - RUNTIME", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+
             }
         }
     }
