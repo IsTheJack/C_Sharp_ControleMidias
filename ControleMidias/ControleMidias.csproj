@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BancoControleMidiaAmigoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BancoControleMidiaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BancoControleMidiaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BancoDeDados\LinqControleMidia.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +133,17 @@
     </None>
     <None Include="BancoControleMidiaAmigoDataSet.xss">
       <DependentUpon>BancoControleMidiaAmigoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BancoControleMidiaDataSet.xsc">
+      <DependentUpon>BancoControleMidiaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BancoControleMidiaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BancoControleMidiaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BancoControleMidiaDataSet.xss">
+      <DependentUpon>BancoControleMidiaDataSet.xsd</DependentUpon>
     </None>
     <None Include="BancoDeDados\LinqControleMidia.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
