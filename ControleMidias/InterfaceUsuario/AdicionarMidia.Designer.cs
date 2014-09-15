@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblDica = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblTipo = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.midiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bancoControleMidiaDataSet = new ControleMidias.BancoControleMidiaDataSet();
             this.midiaTableAdapter = new ControleMidias.BancoControleMidiaDataSetTableAdapters.MidiaTableAdapter();
-            this.lblDica = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gpbPesquisa.SuspendLayout();
@@ -81,6 +81,16 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(847, 92);
             this.panelHeader.TabIndex = 1;
+            // 
+            // lblDica
+            // 
+            this.lblDica.AutoSize = true;
+            this.lblDica.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDica.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDica.Location = new System.Drawing.Point(620, 9);
+            this.lblDica.Name = "lblDica";
+            this.lblDica.Size = new System.Drawing.Size(0, 20);
+            this.lblDica.TabIndex = 3;
             // 
             // label1
             // 
@@ -181,6 +191,7 @@
             this.btnExcluir.TabIndex = 26;
             this.btnExcluir.TabStop = false;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             this.btnExcluir.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
             this.btnExcluir.MouseHover += new System.EventHandler(this.btnExcluir_MouseHover);
             // 
@@ -194,6 +205,7 @@
             this.btnAlterar.TabIndex = 25;
             this.btnAlterar.TabStop = false;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             this.btnAlterar.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
             this.btnAlterar.MouseHover += new System.EventHandler(this.btnAlterar_MouseHover);
             // 
@@ -207,6 +219,7 @@
             this.btnAdd.TabIndex = 24;
             this.btnAdd.TabStop = false;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             this.btnAdd.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
             this.btnAdd.MouseHover += new System.EventHandler(this.btnAdd_MouseHover);
             // 
@@ -265,16 +278,6 @@
             // midiaTableAdapter
             // 
             this.midiaTableAdapter.ClearBeforeFill = true;
-            // 
-            // lblDica
-            // 
-            this.lblDica.AutoSize = true;
-            this.lblDica.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDica.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDica.Location = new System.Drawing.Point(620, 9);
-            this.lblDica.Name = "lblDica";
-            this.lblDica.Size = new System.Drawing.Size(0, 20);
-            this.lblDica.TabIndex = 3;
             // 
             // frmAddMidia
             // 

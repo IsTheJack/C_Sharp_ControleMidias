@@ -92,13 +92,13 @@ namespace ControleMidias.InterfaceUsuario
         // Evento de clique do Botão btnAdd
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool CamposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
+            bool camposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtEmail.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtCidade.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtBairro.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtNumeroCasa.Text.Trim());
             
-            if (!CamposVazios)
+            if (!camposVazios)
             {
                 _Amigo amigo = new _Amigo();
                 amigo.Nome = txtNome.Text.Trim();
@@ -130,7 +130,7 @@ namespace ControleMidias.InterfaceUsuario
         // Evento de clique do Botão btnAlterar
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            bool CamposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
+            bool camposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtEmail.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtCidade.Text.Trim()) ||
                                 String.IsNullOrWhiteSpace(txtBairro.Text.Trim()) ||
@@ -165,7 +165,7 @@ namespace ControleMidias.InterfaceUsuario
                     btnExcluir.Visible = false;
                 }                
             }
-            else if (!CamposVazios)
+            else if (!camposVazios)
             {
                 _Amigo amigo = new _Amigo();
                 amigo.Nome = txtNome.Text.Trim();
@@ -238,7 +238,7 @@ namespace ControleMidias.InterfaceUsuario
 
         private void PesquisaAmigos()
         {
-            amigoBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text + "%' OR " +
+            amigoBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
                                         "Apelido like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
                                         "Celular like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
                                         "Telefone like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +

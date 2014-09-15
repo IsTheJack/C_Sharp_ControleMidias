@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControleMidias.Classes;
 
 namespace ControleMidias.InterfaceUsuario
 {
@@ -79,6 +80,116 @@ namespace ControleMidias.InterfaceUsuario
         #endregion
 
         #region Eventos de Clique
+        // Evento de clique do Botão btnAdd
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            bool camposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
+                                String.IsNullOrWhiteSpace(cbxTipo.Text.Trim());
+
+            if (!camposVazios)
+            {
+                _Midia midia = new _Midia();
+                midia.Nome = txtNome.Text.Trim();
+                midia.Tipo = cbxTipo.Text.Trim();
+
+                if (midia.SalvarDados())
+                {
+                    MessageBox.Show("Mídia salva com sucesso!", "Aviso",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos obrigatórios!\nOs campos marcados com \"*\" são obrigatórios!", "Atenção!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNome.Focus();
+            }
+        }
+
+        // Evento de clique do Botão btnAlterar
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            bool camposVazios = String.IsNullOrWhiteSpace(txtNome.Text.Trim()) ||
+                                String.IsNullOrWhiteSpace(cbxTipo.Text.Trim());
+
+            if (idDeAlteracao == default(uint))
+            {
+                // Reconhecendo a linda do dgvMidias
+                int linha = -1;
+                if (dgvMidias.SelectedRows.Count > 0)
+                    linha = dgvMidias.SelectedRows[0].Index;
+                else if (dgvMidias.SelectedCells.Count > 0)
+                    linha = dgvMidias.SelectedCells[0].RowIndex;
+
+                if (linha > -1)
+                {
+                    // Jogando os dados pros textboxes e salvando o id
+                    idDeAlteracao = Convert.ToUInt32(dgvMidias.Rows[linha].Cells[0].Value);
+                    txtNome.Text = Convert.ToString(dgvMidias.Rows[linha].Cells[1].Value);
+                    cbxTipo.Text = Convert.ToString(dgvMidias.Rows[linha].Cells[2].Value);
+
+                    //Inabilitando os botões salvar e excluir
+                    btnAdd.Visible = false;
+                    btnExcluir.Visible = false;
+                }
+            }
+            else if (!camposVazios)
+            {
+                _Midia midia = new _Midia();
+                midia.Nome = txtNome.Text.Trim();
+                midia.Tipo = cbxTipo.Text.Trim();
+
+                if (midia.AlterarDados(idDeAlteracao))
+                {
+                    MessageBox.Show("Mídia alterada com sucesso!", "Aviso",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                    // Liberando os botões salvar e excluir, deixando idDeAlteração com valor default
+                    btnAdd.Visible = true;
+                    btnExcluir.Visible = true;
+                    idDeAlteracao = default(uint);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos obrigatórios!\nOs campos marcados com \"*\" são obrigatórios!", "Atenção!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNome.Focus();
+            }
+        }
+
+        // Evento de clique do Botão btnExcluir
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            _Midia midia = new _Midia();
+            // Reconhecendo a linda do dgvMidias
+            int linha = -1;
+            if (dgvMidias.SelectedRows.Count > 0)
+                linha = dgvMidias.SelectedRows[0].Index;
+            else if (dgvMidias.SelectedCells.Count > 0)
+                linha = dgvMidias.SelectedCells[0].RowIndex;
+
+            if (linha > -1)
+            {
+                // Pegando o valor da primeira célula, que é referente ao valor do Id
+                uint id;
+                id = Convert.ToUInt32(dgvMidias.Rows[linha].Cells[0].Value);
+
+                DialogResult confirmacao = MessageBox.Show("Realmente deseja excluir a mídia?", "Confirmação de Exclusão",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacao == DialogResult.Yes)
+                {
+                    if (midia.ExcluirDados(id))
+                    {
+                        MessageBox.Show("Mídia excluída com sucesso!", "Aviso");
+
+                        LimparCampos();
+                    }
+                }
+            }
+        }
         #endregion
 
         private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
@@ -88,8 +199,8 @@ namespace ControleMidias.InterfaceUsuario
 
         private void PesquisaMidias()
         {
-            midiaBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text  + "%' OR " +
-                                        "Tipo Like '%" + cbxTipo.Text + "%'";
+            midiaBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text.Trim()  + "%' OR " +
+                                        "Tipo like '%" + txtNomePesquisa.Text.Trim() + "%'";
         }
     }
 }
