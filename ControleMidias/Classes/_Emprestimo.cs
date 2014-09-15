@@ -8,5 +8,10 @@ namespace ControleMidias.Classes
 {
     class _Emprestimo
     {
+        //  Do empréstimo:
+        private uint idAmigo;
+        private DateTime dataSaida;
+        private DateTime dataPrevistaEntrega;
+        private DateTime dataEfetivaEntrega;
     }
 }

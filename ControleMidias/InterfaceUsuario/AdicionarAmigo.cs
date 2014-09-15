@@ -21,6 +21,14 @@ namespace ControleMidias.InterfaceUsuario
             InitializeComponent();
         }
 
+        private void frmAddAmigo_Load(object sender, EventArgs e)
+        {
+            txtNome.Focus();
+            // TODO: This line of code loads data into the 'bancoControleMidiaAmigoDataSet.Amigo' table. You can move, or remove it, as needed.
+            this.amigoTableAdapter.Fill(this.bancoControleMidiaAmigoDataSet.Amigo);
+
+        }
+
         private void LimparCampos()
         {
             txtNome.Text = "";
@@ -40,14 +48,6 @@ namespace ControleMidias.InterfaceUsuario
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void frmAddAmigo_Load(object sender, EventArgs e)
-        {
-            txtNome.Focus();
-            // TODO: This line of code loads data into the 'bancoControleMidiaAmigoDataSet.Amigo' table. You can move, or remove it, as needed.
-            this.amigoTableAdapter.Fill(this.bancoControleMidiaAmigoDataSet.Amigo);
-
         }
 
         #region Eventos de Mouse (MouseHover e MouseLeave)
@@ -198,7 +198,7 @@ namespace ControleMidias.InterfaceUsuario
             }
         }
 
-        // Evento de clique do Botão btnEcluir
+        // Evento de clique do Botão btnExcluir
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             _Amigo amigo = new _Amigo();
@@ -239,15 +239,15 @@ namespace ControleMidias.InterfaceUsuario
         private void PesquisaAmigos()
         {
             amigoBindingSource.Filter = "Nome like '%" + txtNomePesquisa.Text + "%' OR " +
-                "Apelido like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "Celular like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "Telefone like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "Email like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "Cidade like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "Bairro like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "NumeroCasa like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "NomePai like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
-                "NomeMae like '%" + txtNomePesquisa.Text.Trim() + "%'";
+                                        "Apelido like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "Celular like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "Telefone like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "Email like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "Cidade like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "Bairro like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "NumeroCasa like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "NomePai like '%" + txtNomePesquisa.Text.Trim() + "%' OR " +
+                                        "NomeMae like '%" + txtNomePesquisa.Text.Trim() + "%'";
         }
     }
 }

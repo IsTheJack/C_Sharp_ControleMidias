@@ -10,8 +10,8 @@ namespace ControleMidias.Classes
     class _Midia
     {
         /// <summary>
-        /// Esta classe representa a entidade amigo, fornecendo todas as operações necessárias
-        /// para a manutenção dos dados da tabela 'Amigo' no banco de dados 'BancoControleMidia'. 
+        /// Esta classe representa a entidade mídia, fornecendo todas as operações necessárias
+        /// para a manutenção dos dados da tabela 'Midia' no banco de dados 'BancoControleMidia'. 
         /// </summary>
 
         // Atributos globais encapsulados
@@ -19,13 +19,25 @@ namespace ControleMidias.Classes
         private uint idMidia;
         private string nome;
         private string tipo;
-        //  Do empréstimo:
-        private uint idAmigo;
-        private DateTime dataSaida;
-        private DateTime dataPrevistaEntrega;
-        private DateTime dataEfetivaEntrega;
 
         // Propriedades
+        public uint IdMidia
+        {
+            get { return idMidia; }
+            set { idMidia = value; }
+        }
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        public string Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
         
         // Método para salvar os dados
         public bool SalvarDados()
@@ -33,6 +45,12 @@ namespace ControleMidias.Classes
             try
             {
                 LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext();
+
+                Midia midia = new Midia();
+                midia.Nome = nome;
+                midia.Tipo = tipo;
+                dc.Midias.InsertOnSubmit(midia);
+                dc.SubmitChanges();
                 return true; // Retorna true caso a operação ocorra com sucesso
             }
             catch (Exception)
@@ -49,6 +67,17 @@ namespace ControleMidias.Classes
             try
             {
                 LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext();
+
+                var pesquisa = from Midia in dc.Midias
+                               where Midia.IdMidia == id
+                               select Midia;
+
+                Midia midia = new Midia();
+                midia = pesquisa.Single();
+                midia.Nome = nome;
+                midia.Tipo = tipo;
+                dc.SubmitChanges();
+
                 return true; // Retorna true caso a operação ocorra com sucesso
             }
             catch (Exception)
@@ -60,11 +89,23 @@ namespace ControleMidias.Classes
         }
 
         // Método para excluir os dados
-        public bool EcluirDados(uint id)
+        public bool ExcluirDados(uint id)
         {
             try
             {
                 LinqControleMidiaDataContext dc = new LinqControleMidiaDataContext();
+
+                var pesquisa = from Midia in dc.Midias
+                               where Midia.IdMidia == id
+                               select Midia;
+
+                Midia midia = new Midia();
+                midia = pesquisa.Single();
+                midia.Nome = nome;
+                midia.Tipo = tipo;
+                dc.Midias.DeleteOnSubmit(midia);
+                dc.SubmitChanges();
+
                 return true; // Retorna true caso a operação ocorra com sucesso
             }
             catch (Exception)

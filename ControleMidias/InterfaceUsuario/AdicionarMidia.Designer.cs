@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.gpbPesquisa = new System.Windows.Forms.GroupBox();
@@ -44,19 +44,20 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMidias = new System.Windows.Forms.DataGridView();
-            this.bancoControleMidiaDataSet = new ControleMidias.BancoControleMidiaDataSet();
-            this.midiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.midiaTableAdapter = new ControleMidias.BancoControleMidiaDataSetTableAdapters.MidiaTableAdapter();
             this.idMidiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.midiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bancoControleMidiaDataSet = new ControleMidias.BancoControleMidiaDataSet();
+            this.midiaTableAdapter = new ControleMidias.BancoControleMidiaDataSetTableAdapters.MidiaTableAdapter();
+            this.lblDica = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gpbPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxbPesquisar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMidias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoControleMidiaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.midiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancoControleMidiaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -73,6 +74,7 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.panelHeader.Controls.Add(this.lblDica);
             this.panelHeader.Controls.Add(this.lblHeader);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -105,18 +107,18 @@
             this.lblTipo.TabIndex = 13;
             this.lblTipo.Text = "Tipo: *";
             // 
-            // comboBox1
+            // cbxTipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(432, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 14;
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Location = new System.Drawing.Point(432, 17);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(159, 21);
+            this.cbxTipo.TabIndex = 14;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbxTipo);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.lblTipo);
             this.groupBox1.Location = new System.Drawing.Point(11, 98);
@@ -136,6 +138,9 @@
             this.btnVoltar.TabIndex = 22;
             this.btnVoltar.TabStop = false;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            this.btnVoltar.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
+            this.btnVoltar.MouseHover += new System.EventHandler(this.btnVoltar_MouseHover);
             // 
             // gpbPesquisa
             // 
@@ -164,6 +169,7 @@
             this.txtNomePesquisa.Name = "txtNomePesquisa";
             this.txtNomePesquisa.Size = new System.Drawing.Size(185, 20);
             this.txtNomePesquisa.TabIndex = 10;
+            this.txtNomePesquisa.TextChanged += new System.EventHandler(this.txtNomePesquisa_TextChanged);
             // 
             // btnExcluir
             // 
@@ -175,6 +181,8 @@
             this.btnExcluir.TabIndex = 26;
             this.btnExcluir.TabStop = false;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
+            this.btnExcluir.MouseHover += new System.EventHandler(this.btnExcluir_MouseHover);
             // 
             // btnAlterar
             // 
@@ -186,6 +194,8 @@
             this.btnAlterar.TabIndex = 25;
             this.btnAlterar.TabStop = false;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
+            this.btnAlterar.MouseHover += new System.EventHandler(this.btnAlterar_MouseHover);
             // 
             // btnAdd
             // 
@@ -197,9 +207,12 @@
             this.btnAdd.TabIndex = 24;
             this.btnAdd.TabStop = false;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.MouseLeave += new System.EventHandler(this.Botoes_MouseLeave);
+            this.btnAdd.MouseHover += new System.EventHandler(this.btnAdd_MouseHover);
             // 
             // dgvMidias
             // 
+            this.dgvMidias.AllowUserToAddRows = false;
             this.dgvMidias.AutoGenerateColumns = false;
             this.dgvMidias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMidias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -208,23 +221,11 @@
             this.tipoDataGridViewTextBoxColumn});
             this.dgvMidias.DataSource = this.midiaBindingSource;
             this.dgvMidias.Location = new System.Drawing.Point(12, 299);
+            this.dgvMidias.MultiSelect = false;
             this.dgvMidias.Name = "dgvMidias";
+            this.dgvMidias.ReadOnly = true;
             this.dgvMidias.Size = new System.Drawing.Size(824, 193);
             this.dgvMidias.TabIndex = 27;
-            // 
-            // bancoControleMidiaDataSet
-            // 
-            this.bancoControleMidiaDataSet.DataSetName = "BancoControleMidiaDataSet";
-            this.bancoControleMidiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // midiaBindingSource
-            // 
-            this.midiaBindingSource.DataMember = "Midia";
-            this.midiaBindingSource.DataSource = this.bancoControleMidiaDataSet;
-            // 
-            // midiaTableAdapter
-            // 
-            this.midiaTableAdapter.ClearBeforeFill = true;
             // 
             // idMidiaDataGridViewTextBoxColumn
             // 
@@ -240,6 +241,7 @@
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomeDataGridViewTextBoxColumn.Width = 391;
             // 
             // tipoDataGridViewTextBoxColumn
@@ -247,7 +249,32 @@
             this.tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
             this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
             this.tipoDataGridViewTextBoxColumn.Width = 390;
+            // 
+            // midiaBindingSource
+            // 
+            this.midiaBindingSource.DataMember = "Midia";
+            this.midiaBindingSource.DataSource = this.bancoControleMidiaDataSet;
+            // 
+            // bancoControleMidiaDataSet
+            // 
+            this.bancoControleMidiaDataSet.DataSetName = "BancoControleMidiaDataSet";
+            this.bancoControleMidiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // midiaTableAdapter
+            // 
+            this.midiaTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblDica
+            // 
+            this.lblDica.AutoSize = true;
+            this.lblDica.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDica.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDica.Location = new System.Drawing.Point(620, 9);
+            this.lblDica.Name = "lblDica";
+            this.lblDica.Size = new System.Drawing.Size(0, 20);
+            this.lblDica.TabIndex = 3;
             // 
             // frmAddMidia
             // 
@@ -273,8 +300,8 @@
             this.gpbPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxbPesquisar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMidias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoControleMidiaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.midiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancoControleMidiaDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,7 +313,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblTipo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.GroupBox gpbPesquisa;
@@ -302,5 +329,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idMidiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblDica;
     }
 }
