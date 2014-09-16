@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblDica = new System.Windows.Forms.Label();
@@ -226,6 +227,8 @@
             // dgvMidias
             // 
             this.dgvMidias.AllowUserToAddRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvMidias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMidias.AutoGenerateColumns = false;
             this.dgvMidias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMidias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -292,6 +295,8 @@
             this.Controls.Add(this.gpbPesquisa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panelHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmAddMidia";
             this.Text = "AdicionarMidias";
             this.Load += new System.EventHandler(this.frmAddMidia_Load);
